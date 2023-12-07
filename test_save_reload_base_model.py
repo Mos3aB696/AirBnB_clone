@@ -13,9 +13,4 @@ my_model = BaseModel()
 my_model.name = "My_First_Model"
 my_model.my_number = 89
 my_model.save()
-<<<<<<< HEAD
 print(my_model)
-=======
-print(my_model)
-
->>>>>>> f8b28cca7898570fe0a69cb9ea4784324c716dc4
