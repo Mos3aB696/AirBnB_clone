@@ -3,13 +3,13 @@
 
 import uuid
 from datetime import datetime
-from . import storage
 
 
 class BaseModel:
     """public instance attributes"""
 
     def __init__(self, *args, **kwargs):
+        from . import storage
         """Initialize a new instancd of BaseModel"""
         if kwargs:
             for key, val in kwargs.items():
@@ -29,6 +29,8 @@ class BaseModel:
             self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
+        from . import storage
+
         """update public instance attribute updated_at
         with the current datetime """
         self.updated_at = datetime.now()
