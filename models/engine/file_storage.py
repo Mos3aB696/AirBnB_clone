@@ -2,10 +2,12 @@
 """class FileStorage"""
 
 import json
-from models.base_model import BaseModel
+from ..base_model import BaseModel
+
 
 class FileStorage:
-    """Private class attributes"""
+    """serializes instances to a JSON file and deserializes
+    JSON file to instances"""
 
     __file_path = "file.json"
     __objects = {}
@@ -21,8 +23,17 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file"""
-        dic_objects = {}
-        for key, value in FileStorage.__objects.items():
-            dic_objects[key] = value.to_dict()
+        dictionary_obj = {}
+        for key, val in FileStorage.__objects.items():
+            dictionary_obj[key] = val.to_dict()
         with open(FileStorage.__file_path, "w") as file:
-            json.dump(dic_objects, file)
+            json.dump(dictionary_obj, file, indent=4, sort_keys=True)
+
+    def reload(self):
+        try:
+            with open(FileStorage.__file_path, "r") as file:
+                FileStorage.__objects = json.load(file)
+                for key, val in FileStorage.__objects.items():
+                    FileStorage.__objects[key] = BaseModel(**val)
+        except FileNotFoundError:
+            pass
