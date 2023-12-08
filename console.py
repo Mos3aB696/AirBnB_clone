@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         else:
             new_instance = eval(args[0])()
@@ -31,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -47,7 +47,7 @@ class HBNBCommand(cmd.Cmd):
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances
         based or not on the class name"""
         args = args.split()
-        if len(args) > 0 and args[0] not in ["BaseModel"]:
+        if len(args) > 0 and args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         else:
             for key, val in models.storage.all().items():
@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel"]:
+        elif args[0] not in ["BaseModel", "User"]:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
