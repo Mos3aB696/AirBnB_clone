@@ -4,6 +4,11 @@
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.review import Review
+from models.place import Place
+from models.state import State
 
 
 class FileStorage:
@@ -40,5 +45,6 @@ class FileStorage:
                         FileStorage.__objects[key] = User(**val)
                     elif val["__class__"] == "BaseModel":
                         FileStorage.__objects[key] = BaseModel(**val)
+                    
         except FileNotFoundError:
             pass
