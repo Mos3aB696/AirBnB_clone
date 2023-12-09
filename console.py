@@ -117,12 +117,12 @@ class HBNBCommand(cmd.Cmd):
                 setattr(models.storage.all()[key], args[2], args[3])
                 models.storage.all()[key].save()
 
-    def cmdloop(self, intro=None):
-        if sys.stdin.isatty():
-            super().cmdloop(intro)
-        else:
-            for line in sys.stdin:
-                self.onecmd(line)
+    # def cmdloop(self, intro=None):
+    #     if sys.stdin.isatty():
+    #         super().cmdloop(intro)
+    #     else:
+    #         for line in sys.stdin:
+    #             self.onecmd(line)
 
     def do_EOF(self, args):
         """Exit of the program"""
