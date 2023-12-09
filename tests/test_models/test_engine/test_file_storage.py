@@ -54,6 +54,37 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.file_storage.reload()
 
+    def test_new_invalid_object(self):
+        """Test the new method with an invalid object"""
+        with self.assertRaises(AttributeError):
+            self.file_storage.new("invalid object")
+
+    def test_save_file_error(self):
+        """Test the save method with a file error"""
+        self.file_storage.__file_path = "/invalid/path"
+        with self.assertRaises(FileNotFoundError):
+            self.file_storage.save()
+
+    def test_reload_all_types(self):
+        """Test the reload method with all object types"""
+        self.file_storage.reload()
+        for obj in self.file_storage.all().values():
+            self.assertIn(obj.__class__.__name__, [
+                          "BaseModel", "User", "Amenity", "City", "Review",
+                          "Place", "State"])
+
+    def test_all_multiple_new(self):
+        """Test the all method with multiple new calls"""
+        base_model_one = BaseModel()
+        base_model_two = BaseModel()
+        self.file_storage.new(base_model_one)
+        self.file_storage.new(base_model_two)
+        self.assertEqual(len(self.file_storage.all()), 2)
+
+    def test_all_no_objects(self):
+        """Test the all method with no objects"""
+        self.assertEqual(len(self.file_storage.all()), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
