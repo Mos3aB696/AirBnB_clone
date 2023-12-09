@@ -43,7 +43,6 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def setUp(self):
         """Set UP"""
-        """setup for the tests"""
         pass
 
     def tearDown(self) -> None:
