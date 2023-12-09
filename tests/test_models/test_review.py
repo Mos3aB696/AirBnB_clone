@@ -10,7 +10,7 @@ class TestReview(unittest.TestCase):
     def setUp(self):
         """setup for the tests"""
         self.review = Review()
-        
+
     def test_is_instance(self):
         """test for instanation"""
         self.assertIsInstance(self.review, Review)
@@ -22,7 +22,7 @@ class TestReview(unittest.TestCase):
         
         self.assertTrue(hasattr(self.review, "user_id"))
         self.assertEqual(self.review.user_id, "")
-        
+
         self.assertTrue(hasattr(self.review, "text"))
         self.assertEqual(self.review.text, "")
 
