@@ -7,7 +7,6 @@ command interpreters"""
 
 import cmd
 import models
-import sys
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -31,10 +30,6 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """an empty line + ENTER should not execute anything"""
         pass
-
-    # def do_help(self, args):
-    #     """To Get Help"""
-    #     return super().do_help(args)
 
     def do_create(self, args):
         """method that Create New Instance Of
@@ -122,13 +117,6 @@ class HBNBCommand(cmd.Cmd):
             if args[2] not in ["id", "created_at", "updated_at"]:
                 setattr(models.storage.all()[key], args[2], args[3])
                 models.storage.all()[key].save()
-
-    # def cmdloop(self, intro=None):
-    #     if sys.stdin.isatty():
-    #         super().cmdloop(intro)
-    #     else:
-    #         for line in sys.stdin:
-    #             self.onecmd(line)
 
     def do_EOF(self, args):
         """Exit of the program"""
