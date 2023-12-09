@@ -2,14 +2,14 @@
 import cmd
 import models
 import sys
-from models import storage
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.review import Review
-from models.amenity import Amenity
-from models.place import Place
+# from models import storage
+# from models.base_model import BaseModel
+# from models.user import User
+# from models.state import State
+# from models.city import City
+# from models.review import Review
+# from models.amenity import Amenity
+# from models.place import Place
 
 """HBNBCommand Class inherits from the cmd.Cmd class,
 which provide simple framework for writing line-orinted
