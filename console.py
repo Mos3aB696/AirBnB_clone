@@ -2,7 +2,8 @@
 """class HBNBCommand"""
 import cmd
 import models
-from models.base_model import _BaseModel
+import sys
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -91,6 +92,13 @@ class HBNBCommand(cmd.Cmd):
             if args[2] not in ["id", "created_at", "updated_at"]:
                 setattr(models.storage.all()[key], args[2], args[3])
                 models.storage.all()[key].save()
+
+    def cmdloop(self, intro=None):
+        if sys.stdin.isatty():
+            super().cmdloop(intro)
+        else:
+            for line in sys.stdin:
+                self.onecmd(line)
 
     def do_EOF(self, args):
         """Exit of the program"""
