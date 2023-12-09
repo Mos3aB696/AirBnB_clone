@@ -19,7 +19,7 @@ class TestReview(unittest.TestCase):
         """test attribute exist"""
         self.assertTrue(hasattr(self.review, "plac_id"))
         self.assertEqual(self.review.place_id, "")
-        
+
         self.assertTrue(hasattr(self.review, "user_id"))
         self.assertEqual(self.review.user_id, "")
 
