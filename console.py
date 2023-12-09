@@ -20,6 +20,10 @@ class HBNBCommand(cmd.Cmd):
         """Quit or exit the program"""
         return True
 
+    def emptyline(self):
+        """an empty line + ENTER should not execute anything"""
+        pass
+
     def do_create(self, args):
         """method that Create New Instance Of
         BaseModel or user , to save it(to the JSON file), and print the id"""
