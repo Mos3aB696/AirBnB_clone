@@ -10,7 +10,7 @@ class Teststate(unittest.TestCase):
     def setUp(self):
         """setup for the tests"""
         self.state = State()
-        
+
     def test_instance(self):
         """test for instanatio"""
         self.assertIsInstance(self.state, State)
