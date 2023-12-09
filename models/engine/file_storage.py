@@ -45,6 +45,6 @@ class FileStorage:
                         FileStorage.__objects[key] = User(**val)
                     elif val["__class__"] == "BaseModel":
                         FileStorage.__objects[key] = BaseModel(**val)
-                    
+
         except FileNotFoundError:
             pass
