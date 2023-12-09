@@ -41,6 +41,7 @@ class TestFileStorage_methods(unittest.TestCase):
     """Unittests for testing methods of the FileStorage class."""
 
     def setUp(self):
+        """Set UP"""
         pass
 
     def tearDown(self) -> None:
@@ -50,13 +51,16 @@ class TestFileStorage_methods(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
 
     def test_all(self):
+        """Test All"""
         self.assertEqual(dict, type(models.storage.all()))
 
     def test_all_with_arg(self):
+        """Test All With Arguments"""
         with self.assertRaises(TypeError):
             models.storage.all(None)
 
     def test_new(self):
+        """Test New"""
         base_model = BaseModel()
         user = User()
         state = State()
@@ -88,14 +92,25 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(review, models.storage.all().values())
 
     def test_new_with_args(self):
+        """Test New With Arguments"""
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)
 
     def test_new_with_None(self):
+        """Test New Without AnyThing"""
         with self.assertRaises(AttributeError):
             models.storage.new(None)
 
+    def test_new_without_id(self):
+        """Test if new works correctly with an object without id."""
+        class Test:
+            pass
+        test = Test()
+        with self.assertRaises(AttributeError):
+            models.storage.new(test)
+
     def test_save(self):
+        """Test Save"""
         base_model = BaseModel()
         user = User()
         state = State()
@@ -123,10 +138,19 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("Review." + review.id, save_text)
 
     def test_save_with_arg(self):
+        """Test Save With Arg"""
         with self.assertRaises(TypeError):
             models.storage.save(None)
 
+    def test_save_empty_objects(self):
+        """Test If Save Works Correctly With Empty __objects."""
+        FileStorage._FileStorage__objects = {}
+        models.storage.save()
+        with open("file.json", "r") as file:
+            self.assertEqual(file.read(), "{}")
+
     def test_reload(self):
+        """Test Reload"""
         base_model = BaseModel()
         user = User()
         state = State()
@@ -153,8 +177,15 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("Review." + review.id, objs)
 
     def test_reload_with_arg(self):
+        """Test Reload With Args"""
         with self.assertRaises(TypeError):
             models.storage.reload(None)
+
+    def test_reload_nonexistent_file(self):
+        """Test If Reload Works Correctly With A Non-existent File."""
+        if os.path.exists(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
+        models.storage.reload()
 
 
 if __name__ == "__main__":
