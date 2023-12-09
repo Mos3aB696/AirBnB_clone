@@ -2,7 +2,8 @@
 """class FileStorage"""
 
 import json
-from ..base_model import BaseModel
+from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -30,10 +31,14 @@ class FileStorage:
             json.dump(dictionary_obj, file)
 
     def reload(self):
+        """deserialize the JSON file to __object"""
         try:
             with open(FileStorage.__file_path, "r") as file:
                 FileStorage.__objects = json.load(file)
                 for key, val in FileStorage.__objects.items():
-                    FileStorage.__objects[key] = BaseModel(**val)
+                    if val["__class__"] == "User":
+                        FileStorage.__objects[key] = User(**val)
+                    elif val["__class__"] == "BaseModel":
+                        FileStorage.__objects[key] = BaseModel(**val)
         except FileNotFoundError:
             pass
