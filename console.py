@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+"""HBNBCommand Class inherits from the cmd.Cmd class,
+which provide simple framework for writing line-orinted
+command interpreters"""
+
+
 import cmd
 import models
 import sys
@@ -10,10 +16,6 @@ from models.city import City
 from models.review import Review
 from models.amenity import Amenity
 from models.place import Place
-
-"""HBNBCommand Class inherits from the cmd.Cmd class,
-which provide simple framework for writing line-orinted
-command interpreters"""
 
 
 class HBNBCommand(cmd.Cmd):
