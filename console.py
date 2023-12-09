@@ -2,7 +2,7 @@
 """class HBNBCommand"""
 import cmd
 import models
-from models.base_model import BaseModel
+from models.base_model import _BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
