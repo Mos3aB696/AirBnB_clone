@@ -30,6 +30,10 @@ class HBNBCommand(cmd.Cmd):
         """an empty line + ENTER should not execute anything"""
         pass
 
+    def do_help(self, args):
+        """To Get Help"""
+        return super().do_help(args)
+
     def do_create(self, args):
         """method that Create New Instance Of
         BaseModel or user , to save it(to the JSON file), and print the id"""
@@ -126,6 +130,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, args):
         """Exit of the program"""
+        print("")
         return True
 
 
