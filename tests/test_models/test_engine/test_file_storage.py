@@ -59,7 +59,7 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_new(self):
         base_model = BaseModel()
         user = User()
-        state= State()
+        state = State()
         place = Place()
         city = City()
         amenity = Amenity()
@@ -71,7 +71,8 @@ class TestFileStorage_methods(unittest.TestCase):
         models.storage.new(city)
         models.storage.new(amenity)
         models.storage.new(review)
-        self.assertIn("BaseModel." + base_model.id, models.storage.all().keys())
+        self.assertIn("BaseModel." + base_model.id,
+                      models.storage.all().keys())
         self.assertIn(base_model, models.storage.all().values())
         self.assertIn("User." + user.id, models.storage.all().keys())
         self.assertIn(user, models.storage.all().values())
@@ -97,7 +98,7 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_save(self):
         base_model = BaseModel()
         user = User()
-        state= State()
+        state = State()
         place = Place()
         city = City()
         amenity = Amenity()
@@ -128,7 +129,7 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_reload(self):
         base_model = BaseModel()
         user = User()
-        state= State()
+        state = State()
         place = Place()
         city = City()
         amenity = Amenity()
