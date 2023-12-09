@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
             "State",
             "City",
             "Amenity",
-            "Review",
+            "Review"
         ]:
             print("** class doesn't exist **")
         else:
@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
             "State",
             "City",
             "Amenity",
-            "Review",
+            "Review"
         ]:
             print("** class doesn't exist **")
         elif len(args) == 1:
@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             "State",
             "City",
             "Amenity",
-            "Review",
+            "Review"
         ]:
             print("** class doesn't exist **")
         elif len(args) == 1:
@@ -107,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
             "State",
             "City",
             "Amenity",
-            "Review",
+            "Review"
         ]:
             print("** class doesn't exist **")
         else:
@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             "State",
             "City",
             "Amenity",
-            "Review",
+            "Review"
         ]:
             print("** class doesn't exist **")
         elif len(args) == 1:
