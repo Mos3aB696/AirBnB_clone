@@ -7,6 +7,7 @@ Unittestclasses:
 import os
 import models
 import unittest
+from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
@@ -42,6 +43,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def setUp(self):
         """Set UP"""
+        """setup for the tests"""
         pass
 
     def tearDown(self) -> None:
