@@ -3,6 +3,8 @@
 
 from .base_model import BaseModel
 
+
 class State(BaseModel):
     """public class attribute"""
+
     name = ""
