@@ -40,6 +40,20 @@ class TestFileStorage(unittest.TestCase):
         self.file_storage.reload()
         self.assertIsInstance(self.file_storage.all(), dict)
 
+    def test_reload_empty_file(self):
+        """Test the reload method with an empty file"""
+        with open("file.json", "w") as file:
+            file.write("{}")
+        self.file_storage.reload()
+        self.assertEqual(len(self.file_storage.all()), 0)
+
+    def test_reload_invalid_json(self):
+        """Test the reload method with invalid JSON"""
+        with open("file.json", "w") as file:
+            file.write("{invalid json}")
+        with self.assertRaises(ValueError):
+            self.file_storage.reload()
+
 
 if __name__ == "__main__":
     unittest.main()
