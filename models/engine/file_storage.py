@@ -42,7 +42,8 @@ class FileStorage:
             del FileStorage.__objects[key]
 
     def get(self, cls, id):
-        """Return an object based on the class name and its ID, or None if not found"""
+        """Return an object based on the class name and its ID,
+        or None if not found"""
         key = cls + "." + id
         return FileStorage.__objects.get(key, None)
 
