@@ -122,6 +122,13 @@ class HBNBCommand(cmd.Cmd):
         """Exit of the program"""
         return True
 
+    def default(self, arg):
+        """Show Spcified Instance By Using Class Name"""
+        args = arg.split(".")
+        if len(args) > 1:
+            if args[1] == "all()":
+                self.do_all(args[0])
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
