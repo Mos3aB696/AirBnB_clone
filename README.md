@@ -32,25 +32,15 @@ Once the console is running, you can use the following commands:
 - `update <class> <id> <attribute name> "<attribute value>"`: Updates an instance based on the class name and `id` by adding or updating attribute.
 
 ### Example:
-$
+$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
-EOF  all  create  destroy  help  quit  show  update
+EOF  help  quit
 
-(hbnb) help update
-Updates an instance based on the class name and id by
-        adding or updating attribute
-(hbnb) help all
-method Prints all string representation of all instances
-        based or not on the class name
-(hbnb) show all
-** class doesn't exist **
-(hbnb) shoe BaseModel
-*** Unknown syntax: shoe BaseModel
-(hbnb) show BaseModel
-** instance id missing **
+(hbnb) 
+(hbnb) 
 (hbnb) quit
-$ 
-![Alt text](image-1.png)
+$
+
