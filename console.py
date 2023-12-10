@@ -146,14 +146,13 @@ class HBNBCommand(cmd.Cmd):
             elif args[1].startswith("destroy(") and args[1].endswith(")"):
                 id = args[1][9:-2]
                 self.do_destroy(args[0] + " " + id)
-        elif args[1].startswith("update(") and args[1].endswith(")"):
-            params = args[1][7:-1].replace("\"", "").split(", ")
-            if len(params) < 3:
-                print("** attribute name or value missing **")
-
-            else:
-                self.do_update(args[0] + " " + params[0] +
-                               " " + params[1] + " " + params[2])
+            elif args[1].startswith("update(") and args[1].endswith(")"):
+                update_args = args[1][7:-1].replace("\"", "").split(", ")
+                if len(update_args) < 3:
+                    print("** attribute name or value missing **")
+                else:
+                    self.do_update(args[0] + " " + update_args[0] +
+                                   " " + update_args[1] + " " + update_args[2])
         else:
             print("** command doesn't exist **")
 
