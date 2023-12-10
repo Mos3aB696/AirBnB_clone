@@ -32,4 +32,8 @@ Once the console is running, you can use the following commands:
 - `update <class> <id> <attribute name> "<attribute value>"`: Updates an instance based on the class name and `id` by adding or updating attribute.
 
 ### Example:
+Your shell should work like this in interactive mode:
 ![alt text](image.png)
+
+But also in non-interactive mode: (like the Shell project in C)
+![alt text](non-interactive%20mode.png.png)
