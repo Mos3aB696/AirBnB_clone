@@ -140,9 +140,11 @@ class HBNBCommand(cmd.Cmd):
                 self.do_all(args[0])
             elif args[1] == "count()":
                 self.do_count(arg)
+            elif args[1].startswith("show(") and args[1].endswith(")"):
+                id = args[1][6:-2]
+                self.do_show(args[0] + " " + id)
             else:
                 print("** command doesn't exist **")
-
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
