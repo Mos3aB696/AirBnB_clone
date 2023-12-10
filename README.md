@@ -27,13 +27,16 @@ Once the console is running, you can use the following commands:
 
 - `create <class>`: Creates a new instance of `<class>`, saves it to the JSON file, and prints the `id`.
 - `show <class> <id>`: Prints the string representation of an instance based on the class name and `id`.
-- `destroy <class> <id>`: Deletes an instance based on the class name and `id`.
+- `destroy <class> < id >`: Deletes an instance based on the class name and `id`.
 - `all <class>`: Prints all string representation of all instances based or not on the class name.
 - `update <class> <id> <attribute name> "<attribute value>"`: Updates an instance based on the class name and `id` by adding or updating attribute.
 
-### Example:
+## Example:
+
 ### Interactive-mode
+
 ![alt text](image_1.png)
 
 ### Non-Interactive-mode
+
 ![alt text](image_2.png)
