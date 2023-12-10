@@ -3,8 +3,17 @@
 import os
 import models
 import unittest
+import json
 from datetime import datetime
+from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from models.user import User
+from models.state import State
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class TestBaseModel(unittest.TestCase):
@@ -60,6 +69,57 @@ class TestBaseModel(unittest.TestCase):
         old_updated_at = self.base_model.updated_at
         self.base_model.save()
         self.assertTrue(self.base_model.updated_at > old_updated_at)
+
+    def test_unique_id(self):
+        """Test if the id is unique for each instance"""
+        base_model2 = BaseModel()
+        self.assertNotEqual(self.base_model.id, base_model2.id)
+
+    def test_created_at(self):
+        """Test if created_at is set correctly"""
+        self.assertEqual(self.base_model.created_at,
+                         self.base_model.updated_at)
+
+    def test_save_method(self):
+        """Test if save method updates updated_at"""
+        old_updated_at = self.base_model.updated_at
+        self.base_model.save()
+        self.assertNotEqual(self.base_model.updated_at, old_updated_at)
+
+    def test_str_method(self):
+        """Test if __str__ method returns expected string"""
+        string = "[BaseModel] ({}) {}".format(
+            self.base_model.id, self.base_model.__dict__)
+        self.assertEqual(str(self.base_model), string)
+
+    def test_storage(self):
+        """Test if the BaseModel instance is correctly stored"""
+        models.storage.new(self.base_model)
+        models.storage.save()
+        self.assertIn("BaseModel.{}".format(
+            self.base_model.id), models.storage.all())
+
+    def test_removal(self):
+        """Test if the BaseModel instance is correctly removed"""
+        models.storage.new(self.base_model)
+        models.storage.save()
+        models.storage.delete(self.base_model)
+        self.assertNotIn("BaseModel.{}".format(
+            self.base_model.id), models.storage.all())
+
+    def test_update(self):
+        """Test if the BaseModel instance is correctly updated"""
+        self.base_model.name = "New Name"
+        models.storage.save()
+        self.assertEqual(models.storage.all()["BaseModel.{}".format(
+            self.base_model.id)].name, "New Name")
+
+    def test_retrieval(self):
+        """Test if the BaseModel instance is correctly retrieved"""
+        models.storage.new(self.base_model)
+        models.storage.save()
+        retrieved_model = models.storage.get("BaseModel", self.base_model.id)
+        self.assertEqual(retrieved_model, self.base_model)
 
 
 if __name__ == '__main__':
