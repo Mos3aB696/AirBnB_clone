@@ -43,7 +43,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def setUp(self):
         """Set UP"""
-        self.file_storage = FileStorage()
+        pass
 
     def tearDown(self) -> None:
         """Resets FileStorage data."""
