@@ -32,15 +32,4 @@ Once the console is running, you can use the following commands:
 - `update <class> <id> <attribute name> "<attribute value>"`: Updates an instance based on the class name and `id` by adding or updating attribute.
 
 ### Example:
-$ ./console.py
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb) 
-(hbnb) 
-(hbnb) quit
-$
-
+![alt text](image.png)
