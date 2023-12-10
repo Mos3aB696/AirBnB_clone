@@ -33,6 +33,8 @@ Once the console is running, you can use the following commands:
 
 ### Example:
 
-![alt text](image.png)
+Interactive-mode
+![alt text](image_1.png)
 
-<img src="/Python/AirBnB_clone/image.png" title="Interactive Mode>
+Non-Interactive-mode
+![alt text](image_2.png)
