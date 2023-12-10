@@ -143,6 +143,9 @@ class HBNBCommand(cmd.Cmd):
             elif args[1].startswith("show(") and args[1].endswith(")"):
                 id = args[1][6:-2]
                 self.do_show(args[0] + " " + id)
+            elif args[1].startswith("destroy(") and args[1].endswith(")"):
+                id = args[1][9:-2]
+                self.do_destroy(args[0] + " " + id)
             else:
                 print("** command doesn't exist **")
 
