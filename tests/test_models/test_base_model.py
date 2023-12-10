@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Unit Tests For The `base_model` Module"""
-
+import os
+import models
 import unittest
-from models.base_model import BaseModel
 from datetime import datetime
+from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
@@ -41,6 +42,24 @@ class TestBaseModel(unittest.TestCase):
                          self.base_model.created_at.isoformat())
         self.assertEqual(dict["updated_at"],
                          self.base_model.updated_at.isoformat())
+
+    def test_class_name(self):
+        self.assertEqual(self.base_model.__class__.__name__, "BaseModel")
+
+    def test_attribute_types(self):
+        self.assertEqual(type(self.base_model.id), str)
+        self.assertEqual(type(self.base_model.created_at), datetime)
+        self.assertEqual(type(self.base_model.updated_at), datetime)
+
+    def test_attribute_values(self):
+        self.assertTrue(len(self.base_model.id) > 0)
+        self.assertTrue(self.base_model.created_at <= datetime.now())
+        self.assertTrue(self.base_model.updated_at <= datetime.now())
+
+    def test_updated_at_after_save(self):
+        old_updated_at = self.base_model.updated_at
+        self.base_model.save()
+        self.assertTrue(self.base_model.updated_at > old_updated_at)
 
 
 if __name__ == '__main__':
