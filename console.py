@@ -146,5 +146,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** command doesn't exist **")
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
