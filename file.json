@@ -114,5 +114,29 @@
         "email": "airbnb2@mail.com",
         "password": "root",
         "__class__": "User"
+    },
+    "Amenity.9fc38720-5e49-4981-97c6-a96caa047efc": {
+        "id": "9fc38720-5e49-4981-97c6-a96caa047efc",
+        "created_at": "2023-12-10T17:58:08.282089",
+        "updated_at": "2023-12-10T17:58:08.282089",
+        "__class__": "Amenity"
+    },
+    "Amenity.ba124cfb-3c8d-47c2-b376-d7bb08a5f795": {
+        "id": "ba124cfb-3c8d-47c2-b376-d7bb08a5f795",
+        "created_at": "2023-12-10T17:58:08.282157",
+        "updated_at": "2023-12-10T17:58:08.282157",
+        "__class__": "Amenity"
+    },
+    "BaseModel.43e35b43-df15-418d-bea0-dc400af06699": {
+        "id": "43e35b43-df15-418d-bea0-dc400af06699",
+        "created_at": "2023-12-10T17:58:08.282212",
+        "updated_at": "2023-12-10T17:58:08.282212",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.ed6a4d54-75bc-4e2c-b356-52e7bf2cff1d": {
+        "id": "ed6a4d54-75bc-4e2c-b356-52e7bf2cff1d",
+        "created_at": "2023-12-10T17:58:08.282242",
+        "updated_at": "2023-12-10T17:58:08.282248",
+        "__class__": "BaseModel"
     }
 }
