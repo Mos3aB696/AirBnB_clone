@@ -32,13 +32,8 @@ Once the console is running, you can use the following commands:
 - `update <class> <id> <attribute name> "<attribute value>"`: Updates an instance based on the class name and `id` by adding or updating attribute.
 
 ### Example:
-<<<<<<< HEAD
-![alt text](image.png)
-=======
-
 Interactive-mode
 ![alt text](image_1.png)
 
 Non-Interactive-mode
 ![alt text](image_2.png)
->>>>>>> e0eab772ee6fd705575bc06857f326cb21a3de77
