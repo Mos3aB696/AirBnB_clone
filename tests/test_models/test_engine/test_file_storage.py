@@ -102,6 +102,14 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(AttributeError):
             models.storage.new(None)
 
+    # def test_new_without_id(self):
+    #     """Test if new works correctly with an object without id."""
+    #     class Test:
+    #         pass
+    #     test = Test()
+    #     with self.assertRaises(AttributeError):
+    #         models.storage.new(test)
+
     def test_save(self):
         """Test Save"""
         base_model = BaseModel()
@@ -134,6 +142,13 @@ class TestFileStorage_methods(unittest.TestCase):
         """Test Save With Arg"""
         with self.assertRaises(TypeError):
             models.storage.save(None)
+
+    # def test_save_empty_objects(self):
+    #     """Test If Save Works Correctly With Empty __objects."""
+    #     FileStorage._FileStorage__objects = {}
+    #     models.storage.save()
+    #     with open("file.json", "r") as file:
+    #         self.assertEqual(file.read(), "{}")
 
     def test_reload(self):
         """Test Reload"""
