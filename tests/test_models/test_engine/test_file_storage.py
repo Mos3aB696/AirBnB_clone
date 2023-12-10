@@ -43,7 +43,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def setUp(self):
         """Set UP"""
-        pass
+        self.file_storage = FileStorage()
 
     def tearDown(self) -> None:
         """Resets FileStorage data."""
@@ -102,14 +102,6 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(AttributeError):
             models.storage.new(None)
 
-    # def test_new_without_id(self):
-    #     """Test if new works correctly with an object without id."""
-    #     class Test:
-    #         pass
-    #     test = Test()
-    #     with self.assertRaises(AttributeError):
-    #         models.storage.new(test)
-
     def test_save(self):
         """Test Save"""
         base_model = BaseModel()
@@ -143,13 +135,6 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.save(None)
 
-    # def test_save_empty_objects(self):
-    #     """Test If Save Works Correctly With Empty __objects."""
-    #     FileStorage._FileStorage__objects = {}
-    #     models.storage.save()
-    #     with open("file.json", "r") as file:
-    #         self.assertEqual(file.read(), "{}")
-
     def test_reload(self):
         """Test Reload"""
         base_model = BaseModel()
@@ -181,13 +166,6 @@ class TestFileStorage_methods(unittest.TestCase):
         """Test Reload With Args"""
         with self.assertRaises(TypeError):
             models.storage.reload(None)
-
-    # def test_reload_nonexistent_file(self):
-    #     """Test If Reload Works Correctly With A Non-existent File."""
-    #     if os.path.exists(FileStorage._FileStorage__file_path):
-    #         os.remove(FileStorage._FileStorage__file_path)
-    #     models.storage.reload()
-
 
 if __name__ == "__main__":
     unittest.main()
