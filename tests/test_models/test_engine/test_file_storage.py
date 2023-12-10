@@ -41,24 +41,15 @@ class TestFileStorage_instantiation(unittest.TestCase):
 class TestFileStorage_methods(unittest.TestCase):
     """Unittests for testing methods of the FileStorage class."""
 
-    @classmethod
     def setUp(self):
-        try:
-            os.rename("file.json", "tmp")
-        except IOError:
-            pass
+        """Set UP"""
+        pass
 
-    @classmethod
-    def tearDown(self):
-        try:
-            os.remove("file.json")
-        except IOError:
-            pass
-        try:
-            os.rename("tmp", "file.json")
-        except IOError:
-            pass
-        FileStorage.FileStorage_objects = {}
+    def tearDown(self) -> None:
+        """Resets FileStorage data."""
+        FileStorage._FileStorage__objects = {}
+        if os.path.exists(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
 
     def test_all(self):
         """Test All"""
@@ -111,13 +102,13 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(AttributeError):
             models.storage.new(None)
 
-    # def test_new_without_id(self):
-    #     """Test if new works correctly with an object without id."""
-    #     class Test:
-    #         pass
-    #     test = Test()
-    #     with self.assertRaises(AttributeError):
-    #         models.storage.new(test)
+    def test_new_without_id(self):
+        """Test if new works correctly with an object without id."""
+        class Test:
+            pass
+        test = Test()
+        with self.assertRaises(AttributeError):
+            models.storage.new(test)
 
     def test_save(self):
         """Test Save"""
@@ -152,12 +143,12 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.save(None)
 
-    # def test_save_empty_objects(self):
-    #     """Test If Save Works Correctly With Empty __objects."""
-    #     FileStorage._FileStorage__objects = {}
-    #     models.storage.save()
-    #     with open("file.json", "r") as file:
-    #         self.assertEqual(file.read(), "{}")
+    def test_save_empty_objects(self):
+        """Test If Save Works Correctly With Empty __objects."""
+        FileStorage._FileStorage__objects = {}
+        models.storage.save()
+        with open("file.json", "r") as file:
+            self.assertEqual(file.read(), "{}")
 
     def test_reload(self):
         """Test Reload"""
@@ -177,14 +168,14 @@ class TestFileStorage_methods(unittest.TestCase):
         models.storage.new(review)
         models.storage.save()
         models.storage.reload()
-        objs = FileStorage._FileStorage__objects
-        self.assertIn("BaseModel." + base_model.id, objs)
-        self.assertIn("User." + user.id, objs)
-        self.assertIn("State." + state.id, objs)
-        self.assertIn("Place." + place.id, objs)
-        self.assertIn("City." + city.id, objs)
-        self.assertIn("Amenity." + amenity.id, objs)
-        self.assertIn("Review." + review.id, objs)
+        objects = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + base_model.id, objects)
+        self.assertIn("User." + user.id, objects)
+        self.assertIn("State." + state.id, objects)
+        self.assertIn("Place." + place.id, objects)
+        self.assertIn("City." + city.id, objects)
+        self.assertIn("Amenity." + amenity.id, objects)
+        self.assertIn("Review." + review.id, objects)
 
     def test_reload_with_arg(self):
         """Test Reload With Args"""
