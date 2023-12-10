@@ -122,12 +122,26 @@ class HBNBCommand(cmd.Cmd):
         """Exit of the program"""
         return True
 
+    def do_count(self, arg):
+        """Counts the number of instances of a class"""
+        args = arg.split(".")
+        if len(args) > 1 and args[1] == "count()":
+            count = 0
+            for key in models.storage.all():
+                if key.split(".")[0] == args[0]:
+                    count += 1
+            print(count)
+
     def default(self, arg):
         """Show Spcified Instance By Using Class Name"""
         args = arg.split(".")
         if len(args) > 1:
             if args[1] == "all()":
                 self.do_all(args[0])
+            elif args[1] == "count()":
+                self.do_count(arg)
+            else:
+                print("** command doesn't exist **")
 
 
 if __name__ == "__main__":
