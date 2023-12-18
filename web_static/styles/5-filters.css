@@ -5,6 +5,7 @@
   border-radius: 4px;
   position: relative;
   display: flex;
+  align-items: center;
 }
 .container .filters div {
   width: 25%;
@@ -43,8 +44,6 @@
   cursor: pointer;
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .container .filters button:hover {
   opacity: 90%;
