@@ -10,6 +10,7 @@
 .filters .column {
   width: 20%;
   height: 100%;
+  position: relative;
 }
 .filters .column:hover .popover {
   visibility: visible;
@@ -42,6 +43,10 @@
   transition: all 0.5s ease-in-out;
   opacity: 0;
   overflow: hidden;
+  position: absolute;
+  top: 57px;
+  right: 0;
+  left: 0;
 }
 
 .filters .column .popover li h2 {
